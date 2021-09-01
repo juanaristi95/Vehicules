@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Vehicules.API.Data;
 
 namespace Vehicules.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210901010822_AddTableProcedure")]
+    partial class AddTableProcedure
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,7 +40,7 @@ namespace Vehicules.API.Migrations
                     b.HasIndex("Description")
                         .IsUnique();
 
-                    b.ToTable("Procedures");
+                    b.ToTable("Procedure");
                 });
 
             modelBuilder.Entity("Vehicules.API.Data.Entities.VehicleType", b =>
