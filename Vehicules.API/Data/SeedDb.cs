@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Vehicules.API.Data.Entities;
 using Vehicules.API.Helpers;
@@ -26,7 +25,7 @@ namespace Vehicules.API.Data
             await CheckDocumentTypesAsync();
             await CheckProceduresAsync();
             await CheckRolesAsync();
-            await CheckuserAsync("1010","Luis","Salazar","luis@yopmail.com","311 322 46 20", "Calle luna calle sol",UserType.Admin);
+            await CheckuserAsync("1010", "Luis", "Salazar", "luis@yopmail.com", "311 322 46 20", "Calle luna calle sol", UserType.Admin);
             await CheckuserAsync("2020", "Juan", "Zuluaga", "zulu@yopmail.com", "311 322 46 20", "Calle luna calle sol", UserType.User);
             await CheckuserAsync("3030", "Ledys", "Bedoya", "ledys@yopmail.com", "311 322 46 20", "Calle luna calle sol", UserType.User);
         }
@@ -34,7 +33,7 @@ namespace Vehicules.API.Data
         private async Task CheckuserAsync(string document, string firstName, string lastName, string email, string phoneNumber, string address, UserType userType)
         {
             User user = await _userHelper.GetUserAsync(email);
-            if (user == null) 
+            if (user == null)
             {
                 user = new User
                 {
@@ -132,10 +131,10 @@ namespace Vehicules.API.Data
 
         private async Task CheckVehiclesTypeAsync()
         {
-            if (!_context.VehiclesTypes.Any())
+            if (!_context.VehicleTypes.Any())
             {
-                _context.VehiclesTypes.Add(new VehicleType { Description = "Carro" });
-                _context.VehiclesTypes.Add(new VehicleType { Description = "Moto" });
+                _context.VehicleTypes.Add(new VehicleType { Description = "Carro" });
+                _context.VehicleTypes.Add(new VehicleType { Description = "Moto" });
                 await _context.SaveChangesAsync();
             }
         }
