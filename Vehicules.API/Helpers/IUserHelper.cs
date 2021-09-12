@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using Vehicules.API.Data.Entities;
 using Vehicules.API.Models;
+using Vehicules.Common.Enums;
 
 namespace Vehicules.API.Helpers
 {
@@ -13,6 +14,8 @@ namespace Vehicules.API.Helpers
         Task<User> GetUserAsync(Guid id);
 
         Task<IdentityResult> AddUserAsync(User user, string password);
+
+        Task<User> AddUserAsync(AddUserViewModel model, Guid imageId, UserType userType);
 
         Task<IdentityResult> UpdateUserAsync(User user);
 
